@@ -20,14 +20,18 @@ fetch("./texts.json")
   });
 
 // checks the user typed character and displays accordingly
+
+
 const typeController = (e) => {
   const newLetter = e.key;
-
   // Handle backspace press
-  if (newLetter == "Backspace") {
+  
+  if (userText.length > 0 && newLetter == "Backspace") {
+    errorCount++;
     userText = userText.slice(0, userText.length - 1);
     return display.removeChild(display.lastChild);
   }
+  console.log(errorCount);
 
   // these are the valid character we are allowing to type
   const validLetters =
@@ -50,7 +54,7 @@ const typeController = (e) => {
 
   // check if given question text is equal to user typed text
   if (questionText === userText) {
-    gameOver();
+    gameOver(errorCount);
   }
 };
 
@@ -62,7 +66,7 @@ const validate = (key) => {
 };
 
 // FINISHED TYPING
-const gameOver = () => {
+const gameOver = (errorCount) => {
   document.removeEventListener("keydown", typeController);
   // the current time is the finish time
   // so total time taken is current time - start time
@@ -80,7 +84,7 @@ const gameOver = () => {
   // show result
   resultModal.innerHTML += `
     <h1>Finished!</h1>
-    <p>You took: <span class="bold">${timeTaken}</span> seconds</p>
+    <p>You took: <span class="bold">${timeTaken ? Math.trunc(timeTaken) : 0}</span> seconds</p>
     <p>You made <span class="bold red">${errorCount}</span> mistakes</p>
     <button onclick="closeModal()">Close</button>
   `;
