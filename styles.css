@@ -5,10 +5,10 @@
 }
 
 body {
-  background-image: url("./bg.png");
+  background-image: url('./bg.png');
   background-size: cover;
   background-position: left top;
-  font-family: "Zilla Slab", serif;
+  font-family: 'Zilla Slab', serif;
 }
 
 .box-container {
@@ -37,9 +37,12 @@ body {
   margin-bottom: 30px;
 }
 
+#question::-webkit-scrollbar {
+  display: none;
+}
 #display {
   height: 100px;
-  display: flex; 
+  display: flex;
   flex-wrap: wrap;
   overflow-y: auto;
   align-items: center;
@@ -49,6 +52,9 @@ body {
   background-color: #171717;
   border: 2px solid #9dffad;
   border-radius: 15px;
+}
+#display::-webkit-scrollbar {
+  display: none;
 }
 
 #countdown {
@@ -67,7 +73,7 @@ body {
 }
 #result {
   position: absolute;
-  top: 50%; 
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   height: 250px;
@@ -79,7 +85,7 @@ body {
   text-align: center;
   padding: 2rem;
 }
-#show-time{
+#show-time {
   text-align: center;
   color: white;
   margin: 10px 0;
@@ -187,6 +193,13 @@ button {
   top: 0;
 }
 
+.accordion-button {
+  overflow-y: auto;
+}
+.accordion-button::-webkit-scrollbar {
+  display: none;
+}
+
 @media only screen and (max-width: 700px) {
   .box-container {
     padding: 0 20px;
@@ -197,11 +210,10 @@ button {
   }
   #histories {
     grid-template-columns: repeat(1, 1fr);
-    
   }
 }
 
-@media screen and (min-width: 767px) and (max-width: 1023px){
+@media screen and (min-width: 767px) and (max-width: 1023px) {
   #histories {
     grid-template-columns: repeat(2, 1fr);
   }
