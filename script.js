@@ -24,9 +24,8 @@ fetch("./texts.json")
 
 const typeController = (e) => {
   const newLetter = e.key;
-  console.log(newLetter);
+  // console.log(newLetter);
   // Handle backspace press
-  
   if (userText.length > 0 && newLetter == "Backspace") {
     errorCount++;
     userText = userText.slice(0, userText.length - 1);
@@ -148,6 +147,6 @@ setInterval(() => {
 
 // Stop page scrolling when space is pressed
 window.onkeydown = function (e) {
-  console.log(e.keyCode);
+  // console.log(e.keyCode);
   return e.keyCode !== 32;
 };
