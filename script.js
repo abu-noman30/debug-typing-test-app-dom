@@ -102,6 +102,7 @@ const gameOver = (errorCount) => {
 const closeModal = () => {
   modalBackground.classList.toggle("hidden");
   resultModal.classList.toggle("hidden");
+  window.location.reload(true);
 };
 
 const start = () => {
@@ -144,3 +145,9 @@ setInterval(() => {
 
   document.getElementById("show-time").innerHTML = `${startTime ? Math.trunc(timeSpent) : 0} seconds`;
 }, 1000);
+
+// Stop page scrolling when space is pressed
+window.onkeydown = function (e) {
+  console.log(e.keyCode);
+  return e.keyCode !== 32;
+};
