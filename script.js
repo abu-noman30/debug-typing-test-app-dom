@@ -24,6 +24,7 @@ fetch("./texts.json")
 
 const typeController = (e) => {
   const newLetter = e.key;
+  console.log(newLetter);
   // Handle backspace press
   
   if (userText.length > 0 && newLetter == "Backspace") {
@@ -31,7 +32,7 @@ const typeController = (e) => {
     userText = userText.slice(0, userText.length - 1);
     return display.removeChild(display.lastChild);
   }
-  console.log(errorCount);
+  // console.log(errorCount);
 
   // these are the valid character we are allowing to type
   const validLetters =
